@@ -25,7 +25,7 @@ play_again_button = tk.Button(root, text=' Play again', font=('calibri', 20), co
 
 current_chr = "X"
 
-play_area = tk.Frame(root, width=500, height=500, bg='black')
+play_area = tk.Frame(root, width=600, height=600, bg='black')
 XO_points = []
 X_points = []
 O_points = []
@@ -132,6 +132,19 @@ def quit_game():
     root.destroy()  
 quit_button = tk.Button(root, text="Quit",height=3,width=8, command=quit_game)
 quit_button.pack()
+def reset_game():
+    global current_chr, X_points, O_points
+    current_chr = "X"
+    for point in XO_points:
+        point.reset()
+        point.button.configure(state=tk.NORMAL)
+    X_points = []
+    O_points = []
+    status_label.configure(text="X's turn")
+    play_again_button.pack_forget()
+
+reset_button = tk.Button(root, text='Reset Game', font=('calibri', 10), command=reset_game)
+reset_button.pack()
 
 
 root.mainloop()
