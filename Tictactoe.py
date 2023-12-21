@@ -25,7 +25,7 @@ play_again_button = tk.Button(root, text=' Play again', font=('calibri', 20), co
 
 current_chr = "X"
 
-play_area = tk.Frame(root, width=600, height=600, bg='black')
+play_area = tk.Frame(root, width=800, height=900, bg='black')
 XO_points = []
 X_points = []
 O_points = []
